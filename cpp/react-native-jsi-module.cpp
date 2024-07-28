@@ -3,10 +3,10 @@
 namespace jsimodule
 {
 
-    // Temporary C++ that we want to be imported from Rust.
-    double cpp_multiply(double a, double b)
+    extern "C"
     {
-        return a * b;
+        // For instance, C++'s `double` type is the equivalent of Rust's `f64`
+        double rust_multiply(double a, double b);
     }
 
     void bridgeJSIFunctions(Runtime &jsi)
@@ -26,7 +26,7 @@ namespace jsimodule
                 double a = arguments[0].asNumber();
                 double b = arguments[1].asNumber();
 
-                double ret = cpp_multiply(a, b);
+                double ret = rust_multiply(a, b);
 
                 return Value(ret);
             });

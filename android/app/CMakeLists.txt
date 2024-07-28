@@ -14,9 +14,13 @@ include_directories(
     ../../cpp
 )
 
+add_library(rust_multiply STATIC IMPORTED)
+set_target_properties(rust_multiply PROPERTIES IMPORTED_LOCATION "${CMAKE_SOURCE_DIR}/librust_lib.a")
+
 find_package(ReactAndroid REQUIRED CONFIG)
 target_link_libraries(
     react-native-jsi-module
     ReactAndroid::jsi
     android
+    rust_multiply
 )

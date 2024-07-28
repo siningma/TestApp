@@ -10,9 +10,10 @@ using namespace facebook::jsi;
 
 RCT_EXPORT_MODULE()
 
-// 👇 Add these methods:
+@synthesize bridge = _bridge;
+@synthesize methodQueue = _methodQueue;
 
-// Convenient method to ensure JSI functions will be installed on the main thread.
+// Ensures JSI functions will be made available from the main thread.
 + (BOOL)requiresMainQueueSetup {
   return YES;
 }
@@ -40,7 +41,6 @@ static void bridgePlatformFunctions(Runtime &jsi) {
                                                            const Value &thisValue,
                                                            const Value *arguments,
                                                            size_t count) -> Value {
-
     return String::createFromUtf8(runtime, [[[UIDevice currentDevice] name] UTF8String]);
   });
 
