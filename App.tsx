@@ -1,5 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {multiply} from './MyModule';
+
+console.log('multiply', multiply(3, 7));
 
 const App = () => {
   return (
