@@ -20,10 +20,15 @@ const JsiModule =
 
 const jsiCore = global as unknown as {
   multiply(a: number, b: number): number;
+  getDeviceName(): string;
 };
 
 JsiModule.bridgeJSIFunctions();
 
 export function multiply(a: number, b: number): number {
   return jsiCore.multiply(a, b);
+}
+
+export function getDeviceName(): string {
+  return jsiCore.getDeviceName();
 }

@@ -73,5 +73,7 @@ yarn-error.log
 !.yarn/sdks
 !.yarn/versions
 
+target/
+**/target/
 # Rust
-rust/target/*
+rust/target/.rustc_info.json

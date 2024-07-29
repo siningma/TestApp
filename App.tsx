@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {multiply} from './MyModule';
+import {multiply, getDeviceName} from './MyModule';
 
 console.log('multiply', multiply(3, 7));
+console.log('getDeviceName', getDeviceName());
 
 const App = () => {
   return (
