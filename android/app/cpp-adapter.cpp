@@ -1,5 +1,6 @@
 #include <jni.h>
 #include <jsi/jsi.h>
+#include <sys/system_properties.h>
 #include "react-native-jsi-module.h"
 
 using namespace facebook::jsi;
@@ -33,7 +34,9 @@ void bridgePlatformFunctions(Runtime &jsi)
                                                              size_t count) -> Value
                                                           {
                                                               // JNI logic for another time!
-                                                              return Value(runtime, String::createFromAscii(runtime, "Not yet implemented."));
+                                                              char model_string[PROP_VALUE_MAX + 1];
+                                                              __system_property_get("ro.product.model", model_string);
+                                                              return Value(runtime, String::createFromAscii(runtime, model_string));
                                                           });
 
     jsi.global().setProperty(jsi, "getDeviceName", std::move(getDeviceName));

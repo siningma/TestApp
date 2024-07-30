@@ -12,7 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		28EED3872C56101100F9C538 /* librust_lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28EED37A2C56032E00F9C538 /* librust_lib.a */; };
+		282CC94C2C598CCC0091266E /* librust_lib.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282CC94B2C598CCC0091266E /* librust_lib.xcframework */; };
 		28EED38B2C56118000F9C538 /* JsiModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28EED38A2C56118000F9C538 /* JsiModule.mm */; };
 		28EED38D2C56119B00F9C538 /* react-native-jsi-module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 28EED38C2C56119B00F9C538 /* react-native-jsi-module.cpp */; };
 		7699B88040F8A987B510C191 /* libPods-TestApp-TestAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-TestApp-TestAppTests.a */; };
@@ -43,6 +43,7 @@
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = TestApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-TestApp-TestAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestApp-TestAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		219C460ABC8A6C200F7B1979 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = TestApp/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		282CC94B2C598CCC0091266E /* librust_lib.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = librust_lib.xcframework; sourceTree = "<group>"; };
 		28EED37A2C56032E00F9C538 /* librust_lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librust_lib.a; sourceTree = "<group>"; };
 		28EED3832C560AE200F9C538 /* react-native-jsi-module.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "react-native-jsi-module.h"; path = "../cpp/react-native-jsi-module.h"; sourceTree = "<group>"; };
 		28EED3842C560AE200F9C538 /* react-native-jsi-module.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "react-native-jsi-module.cpp"; path = "../cpp/react-native-jsi-module.cpp"; sourceTree = "<group>"; };
@@ -71,7 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-TestApp.a in Frameworks */,
-				28EED3872C56101100F9C538 /* librust_lib.a in Frameworks */,
+				282CC94C2C598CCC0091266E /* librust_lib.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +116,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				282CC94B2C598CCC0091266E /* librust_lib.xcframework */,
 				28EED37A2C56032E00F9C538 /* librust_lib.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-TestApp.a */,
