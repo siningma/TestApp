@@ -6,33 +6,36 @@ namespace jsimodule
     extern "C"
     {
         // For instance, C++'s `double` type is the equivalent of Rust's `f64`
-        double rust_multiply(double a, double b);
+        // double rust_multiply(double a, double b);
+        int add_benchmark(int cnt);
     }
 
     void bridgeJSIFunctions(Runtime &jsi)
     {
-        // Define `multiplyJSI` using JSI idioms.
-        auto multiplyJSI = Function::createFromHostFunction(
+        // Define `addBenchmarkJSI` using JSI idioms.
+        auto addBenchmarkJSI = Function::createFromHostFunction(
             jsi,
-            PropNameID::forAscii(jsi, "multiplyJSI"),
+            PropNameID::forAscii(jsi, "addBenchmarkJSI"),
             2, // number of arguments
             [](Runtime &runtime, const Value &thisValue, const Value *arguments, size_t count) -> Value
             {
-                if (count < 2)
+                if (count < 1)
                 {
-                    throw JSError(runtime, "multiply() expects 2 arguments");
+                    throw JSError(runtime, "add_benchmark() expects 1 arguments");
                 }
 
-                double a = arguments[0].asNumber();
-                double b = arguments[1].asNumber();
+                // double a = arguments[0].asNumber();
+                //  double b = arguments[1].asNumber();
+                int cnt = arguments[0].asNumber();
 
-                double ret = rust_multiply(a, b);
+                // double ret = rust_multiply(a, b);
+                int ret = add_benchmark(cnt);
 
                 return Value(ret);
             });
 
-        // Export `multiply` to React Native's global object
-        jsi.global().setProperty(jsi, "multiply", std::move(multiplyJSI));
+        // Export `add_benchmark` to React Native's global object
+        jsi.global().setProperty(jsi, "add_benchmark", std::move(addBenchmarkJSI));
     }
 
 } //

@@ -19,14 +19,19 @@ const JsiModule =
   );
 
 const jsiCore = global as unknown as {
-  multiply(a: number, b: number): number;
+  // multiply(a: number, b: number): number;
+  add_benchmark(n: number): number;
   getDeviceName(): string;
 };
 
 JsiModule.bridgeJSIFunctions();
 
-export function multiply(a: number, b: number): number {
-  return jsiCore.multiply(a, b);
+// export function multiply(a: number, b: number): number {
+//   return jsiCore.multiply(a, b);
+// }
+
+export function add_benchmark(count: number): number {
+  return jsiCore.add_benchmark(count);
 }
 
 export function getDeviceName(): string {

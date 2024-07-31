@@ -1,19 +1,15 @@
+use std::hint::black_box;
+
 #[no_mangle]
 pub extern "C" fn rust_multiply(a: f64, b: f64) -> f64 {
     a * b + 5.0
 }
 
 #[no_mangle]
-pub extern "C" fn rust_add(a: i32, b: i32) -> i32 {
-    a + b
-}
-
-#[no_mangle]
-pub extern "C" fn rust_add_loop() -> i32 {
+pub extern "C" fn add_benchmark(count: i32) -> i32 {
     let mut x = 0;
-    for i in 0..100000 {
-        let b = i;
-        x += b;
+    for _ in 0..count {
+        x += black_box(1);
     }
     x
 }
