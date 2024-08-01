@@ -33,6 +33,8 @@ local.properties
 .cxx/
 *.keystore
 !debug.keystore
+android/app/jniLibs
+android/app/release
 
 # node.js
 #
@@ -76,6 +78,7 @@ yarn-error.log
 # Target
 target/
 **/target/
+
 # Rust
 rust/target/**
 

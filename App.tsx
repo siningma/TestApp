@@ -1,34 +1,41 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {add_benchmark, getDeviceName} from './MyModule';
+import {add_benchmark} from './MyModule';
 
 // console.log('multiply', multiply(3, 7));
-function benchmark(cnt: number): number {
-  const startTime = Date.now();
-  const ret = add_benchmark(cnt);
-  const endTime = Date.now();
-  const executionTime = endTime - startTime;
-  console.log(`add_benchmark execution time: ${executionTime} ms`);
-  return ret;
-}
-
-function js_add(cnt: number): number {
-  const startTime = Date.now();
+function benchmark(iter: number, cnt: number): number {
   var sum = 0;
-  for (let i = 0; i < cnt; i++) {
-    sum += 1;
+  for (let i = 0; i < iter; i++) {
+    const startTime = Date.now();
+    sum += add_benchmark(cnt);
+    const endTime = Date.now();
+    const executionTime = endTime - startTime;
+    console.log(`loop${i}: add_benchmark execution time: ${executionTime} ms`);
   }
-  const endTime = Date.now();
-  const executionTime = endTime - startTime;
-  console.log(`js_add execution time: ${executionTime} ms`);
+
   return sum;
 }
 
-const cnt = 1000000;
-const v1 = js_add(cnt);
-const v2 = benchmark(cnt);
-console.log('v1==v2', v1 === v2);
-console.log('getDeviceName', getDeviceName());
+function js_add(iter: number, cnt: number): number {
+  var sum = 0;
+  for (let i = 0; i < iter; i++) {
+    const startTime = Date.now();
+    for (let j = 0; j < cnt; j++) {
+      sum += 1;
+    }
+    const endTime = Date.now();
+    const executionTime = endTime - startTime;
+    console.log(`loop ${i}: js_add execution time: ${executionTime} ms`);
+  }
+  return sum;
+}
+
+const cnt = 200_000_000;
+const iter = 5;
+const v1 = js_add(iter, cnt);
+const v2 = benchmark(iter, cnt);
+console.log('v1===v2', v1 === v2);
+// console.log('getDeviceName', getDeviceName());
 
 const App = () => {
   return (
